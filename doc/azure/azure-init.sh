@@ -14,7 +14,7 @@ echo "Setting up service scripts..."
 cat > /home/"$USERNAME"/ray-head.sh << EOM
 #!/bin/bash
 
-eval "$(conda shell.bash hook)"
+eval "\$(conda shell.bash hook)"
 conda activate $CONDA_ENV
 
 NUM_GPUS=\`nvidia-smi -L | wc -l\`
@@ -32,7 +32,7 @@ EOM
 cat > /home/"$USERNAME"/ray-worker.sh << EOM
 #!/bin/bash
 
-eval "$(conda shell.bash hook)"
+eval "\$(conda shell.bash hook)"
 conda activate $CONDA_ENV
 
 NUM_GPUS=\`nvidia-smi -L | wc -l\`
@@ -56,7 +56,7 @@ EOM
 cat > /home/"$USERNAME"/tensorboard.sh << EOM
 #!/bin/bash
 
-eval "$(conda shell.bash hook)"
+eval "\$(conda shell.bash hook)"
 conda activate $CONDA_ENV
 mkdir -p /home/$USERNAME/ray_results
 
