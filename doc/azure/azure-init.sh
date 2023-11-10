@@ -18,6 +18,11 @@ eval "$(conda shell.bash hook)"
 conda activate $CONDA_ENV
 
 NUM_GPUS=\`nvidia-smi -L | wc -l\`
+# it the commant was not successful there probably are no GPU's then
+if [ "$?" -ne 0 ]
+then
+   NUM_GPUS=0
+fi
 
 ray stop
 ulimit -n 65536
@@ -31,6 +36,11 @@ eval "$(conda shell.bash hook)"
 conda activate $CONDA_ENV
 
 NUM_GPUS=\`nvidia-smi -L | wc -l\`
+# it the commant was not successful there probably are no GPU's then
+if [ "$?" -ne 0 ]
+then
+   NUM_GPUS=0
+fi
 
 ray stop
 ulimit -n 65536
