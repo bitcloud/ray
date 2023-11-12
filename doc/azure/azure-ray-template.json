@@ -80,14 +80,12 @@
         },
         "condaEnv": {
             "type": "string",
-            "defaultValue": "py38_tensorflow",
+            "defaultValue": "py38_default",
             "allowedValues": [
-                "azureml_py36_automl",
-                "azureml_py36_pytorch",
-                "azureml_py36_tensorflow",
                 "py38_default",
-                "py38_pytorch",
-                "py38_tensorflow"
+                "base",
+                "azureml_py38",
+                "azureml_py38_PT_and_TF"
             ],
             "metadata": {
                 "description": "Conda environment to select (installed on DSVM)"
@@ -109,7 +107,7 @@
         }
     },
     "variables": {
-        "azureScriptInitUrl": "https://raw.githubusercontent.com/ray-project/ray/master/doc/azure/azure-init.sh",
+        "azureScriptInitUrl": "https://raw.githubusercontent.com/bitcloud/ray/master/doc/azure/azure-init.sh",
         "location": "[resourceGroup().location]",
         "vmName": "ray-node",
         "subnetWorkers": "10.32.0.0/16",
@@ -129,8 +127,8 @@
         "subnetNetwork": "[split(variables('subnetHead'), '/')[0]]",
         "headInternalIP": "[concat(substring(variables('subnetNetwork'), 0, lastIndexOf(variables('subnetNetwork'), '.')), '.5')]",
         "imagePublisher": "microsoft-dsvm",
-        "imageOffer": "ubuntu-1804",
-        "imageSku": "1804",
+        "imageOffer": "ubuntu-2004",
+        "imageSku": "2004",
         "imageVersion": "latest"
     },
     "resources": [
