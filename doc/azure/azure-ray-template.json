@@ -128,7 +128,7 @@
         "headInternalIP": "[concat(substring(variables('subnetNetwork'), 0, lastIndexOf(variables('subnetNetwork'), '.')), '.5')]",
         "imagePublisher": "microsoft-dsvm",
         "imageOffer": "ubuntu-2004",
-        "imageSku": "2004",
+        "imageSku": "2004-gen2",
         "imageVersion": "latest"
     },
     "resources": [
